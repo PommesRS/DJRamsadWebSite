@@ -4,9 +4,8 @@ import { soundcloud,  spotify, twitch, youtube, amazon } from "../assets";
 import HeroGridItem from "./HeroGridItem";
 
 const Hero = () => (
-  <section id='home' className={`flex md:flex-row flex-col ${styles.paddingY} h-[100%] mb-20`}>
+  <section id='home' className={`flex flex-row  ${styles.paddingY} h-[100%] mb-20`}>
     <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-
 
       <div className=" flex flex-row justify-between items-center w-full">
         <h1 className="flex-1 flex-wrap font-poppins font-semibold z-[4] text-[35px] xs:text-[65px] text-center ss:text-left md:text-[52px] text-white xs:leading-[80.8px] leading-[45px]">

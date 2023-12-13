@@ -113,6 +113,11 @@
   cursor: grab;
 }
 
+.slider::-webkit-slider-runnable-track{
+  background-color: #000000;
+  opacity: 0.5;
+}
+
 @-webkit-keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);
