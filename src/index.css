@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway:500");
 
 @tailwind base;
 @tailwind components;
@@ -78,12 +79,38 @@
 }
 
 .box-shadow {
-  box-shadow: 20px 20px 50px -10px rgb(42, 2, 61);
+  box-shadow: 0px 0px 50px -15px rgb(88, 63, 100);
 }
 
 .sidebar {
   -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slider{
+  align-self: center;
+  -webkit-appearance: none;
+  width: 90%;
+  height: 7px;
+  background-color: #4b0969;
+  border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 99999px;
+  width: 15px;
+  height: 15px;
+  background: #ffff;
+  cursor: grab;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ffff;
+  cursor: grab;
 }
 
 @-webkit-keyframes slide-top {
@@ -126,7 +153,7 @@
 }
 
 .purple__gradient {
-  background: linear-gradient(180deg, rgb(75, 9, 105) 0%, #0C071A 100%); 
+  background: linear-gradient(180deg, #4b0969 0%, rgb(12, 7, 26) 100%); 
 }
 
 .pink__gradient{

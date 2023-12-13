@@ -2,7 +2,6 @@ import styles from "../style";
 import Button from "./Button";
 import { soundcloud,  spotify, twitch, youtube, amazon } from "../assets";
 import HeroGridItem from "./HeroGridItem";
-import { socials } from "../constants";
 
 const Hero = () => (
   <section id='home' className={`flex md:flex-row flex-col ${styles.paddingY} h-[100%] mb-20`}>

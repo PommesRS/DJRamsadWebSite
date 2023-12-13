@@ -46,6 +46,17 @@ export const socials = [
   },
 ]
 
+export const SCSongs = [
+  {
+    id: "For Me",
+    link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1674248652",
+  },
+  {
+    id: "Burning Inside",
+    link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1656640377",
+  }
+]
+
 // export const feedback = [
 //   {
 //     id: "feedback-1",
