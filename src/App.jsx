@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Hero, NewSongs} from './components';
+import { Navbar, Hero, NewSongs, SpotifyPreview} from './components';
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -17,8 +17,9 @@ const App = () => (
     </div>
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth}`}>
+      <div className={`${styles.boxWidth} flex flex-col gap-10`}>
         <NewSongs />
+        <SpotifyPreview />
       </div>
     </div>
   </div>
