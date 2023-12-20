@@ -20,7 +20,7 @@ const Navbar = () => {
             </a>
           </li>
         ))}
-        <li><Button content={"Kontakt"} bg={"bg-pink-gradient"}/></li>
+        <li><Button content={"Kontakt"} styles={"bg-pink-gradient"}/></li>
       </ul>
 
     <div className="sm:hidden flex flex-1 justify-end items-center ">

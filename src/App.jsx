@@ -24,7 +24,6 @@ const App = () => (
         <h1 className={`${styles.heading2} ${styles.flexCenter} `}>Partner</h1>
         <Partner />
         <CTA />
-
       </div>
     </div>
 
