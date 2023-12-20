@@ -17,7 +17,7 @@ const Hero = () => (
       Dein musikalisches Abenteuer beginnt hier! </p>
 
       <div className={`flex flex-row flex-wrap ${styles.flexCenter} mt-10`}>
-        <Button content={"Kontakt"} bg={"bg-pink-gradient"}/>
+        <Button content={"Kontakt"} styles={"bg-pink-gradient"}/>
       </div>
 
 

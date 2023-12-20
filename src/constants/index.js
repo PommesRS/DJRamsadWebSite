@@ -130,71 +130,51 @@ export const SCSongs = [
 //   },
 // ];
 
-// export const footerLinks = [
-//   {
-//     title: "Useful Links",
-//     links: [
-//       {
-//         name: "Content",
-//         link: "https://www.hoobank.com/content/",
-//       },
-//       {
-//         name: "How it Works",
-//         link: "https://www.hoobank.com/how-it-works/",
-//       },
-//       {
-//         name: "Create",
-//         link: "https://www.hoobank.com/create/",
-//       },
-//       {
-//         name: "Explore",
-//         link: "https://www.hoobank.com/explore/",
-//       },
-//       {
-//         name: "Terms & Services",
-//         link: "https://www.hoobank.com/terms-and-services/",
-//       },
-//     ],
-//   },
-//   {
-//     title: "Community",
-//     links: [
-//       {
-//         name: "Help Center",
-//         link: "https://www.hoobank.com/help-center/",
-//       },
-//       {
-//         name: "Partners",
-//         link: "https://www.hoobank.com/partners/",
-//       },
-//       {
-//         name: "Suggestions",
-//         link: "https://www.hoobank.com/suggestions/",
-//       },
-//       {
-//         name: "Blog",
-//         link: "https://www.hoobank.com/blog/",
-//       },
-//       {
-//         name: "Newsletters",
-//         link: "https://www.hoobank.com/newsletters/",
-//       },
-//     ],
-//   },
-//   {
-//     title: "Partner",
-//     links: [
-//       {
-//         name: "Our Partner",
-//         link: "https://www.hoobank.com/our-partner/",
-//       },
-//       {
-//         name: "Become a Partner",
-//         link: "https://www.hoobank.com/become-a-partner/",
-//       },
-//     ],
-//   },
-// ];
+export const footerLinks = [
+  {
+    title: "Platforms",
+    links: [
+      {
+        name: "Spotify",
+        link: "https://open.spotify.com/intl-de/artist/3fK3t9pN1XTkq2KiIGO3Pz",
+      },
+      {
+        name: "Amazon Music",
+        link: "https://music.amazon.de/artists/B09RPL8V3S/dj-ramsad",
+      },
+      {
+        name: "Soundcloud",
+        link: "https://soundcloud.com/dj_ramsad",
+      },
+      {
+        name: "Twitch",
+        link: "https://www.twitch.tv/djramsad",
+      },
+      {
+        name: "Youtube",
+        link: "https://www.youtube.com/channel/UCAIrKKlznU2W1co-bZdz5FA",
+      },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      {
+        name: "Kontakt",
+        link: "#",
+      },
+    ],
+  },
+  {
+    title: "Partner",
+    links: [
+      {
+        name: "MBL Music",
+        link: "https://open.spotify.com/intl-de/artist/3sE0lstEyTyl05QygpiR0k?si=SJ13hXJAQreFdzYAWCra2Q",
+      },
+    ],
+  },
+];
 
 // export const socialMedia = [
 //   {

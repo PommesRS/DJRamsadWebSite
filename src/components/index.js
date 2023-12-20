@@ -5,6 +5,7 @@ import NewSongs from "./NewSongs";
 import SpotifyPreview from "./SpotifyPreview";
 import Partner from "./partner";
 import CTA from "./CTA";
+import Footer from "./Footer";
 
 export{
     Navbar,
@@ -14,4 +15,5 @@ export{
     SpotifyPreview,
     Partner,
     CTA,
+    Footer,
 }
