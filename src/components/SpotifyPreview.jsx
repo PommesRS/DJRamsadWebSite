@@ -14,7 +14,7 @@ const SpotifyPreview = () => (
             </p>
         </div>
         
-        <img src={ramsadSpotify} className='w-2/4 -ml-20 md:visible invisible z-[0] rounded-3xl hover:-mt-5 hover:mb-5 duration-75 ease-linear object-contain'/>
+        <img src={ramsadSpotify} className='w-2/4 -ml-20 md:visible invisible z-[0] rounded-3xl hover:-mt-5 hover:mb-5 duration-75 ease-linear'/>
     </div>
         
 
