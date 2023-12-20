@@ -5,7 +5,6 @@ const App = () => (
   <div className="bg-primary w-full overflow-hidden">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        
         <Navbar />
       </div>
     </div>
@@ -18,10 +17,9 @@ const App = () => (
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
       <div className={`${styles.boxWidth} flex flex-col gap-10`}>
-        <h1 className={`${styles.heading2} ${styles.flexCenter} `}>Neue&nbsp;<span className='text-gradient'> Musik</span></h1>
         <NewSongs />
         <SpotifyPreview />
-        <h1 className={`${styles.heading2} ${styles.flexCenter} `}>Partner</h1>
+        <h1 className={`${styles.heading2} ${styles.flexCenter} mt-14 relative`}>Partner</h1>
         <Partner />
         <CTA />
       </div>

@@ -5,7 +5,7 @@ import youtube from './Youtube.svg';
 import amazon from './Amazon.png';
 import close from './close.svg';
 import menu from './menu.svg';
-import logo from './svg_logo.svg';
+import logo from './logo.png';
 import ramsadSpotify from './ramsadSpotify.png'
 import mblSpotify from './MBLSpotify.png'
 
