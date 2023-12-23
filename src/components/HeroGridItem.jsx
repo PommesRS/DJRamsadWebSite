@@ -13,7 +13,8 @@ export default class HeroGridItem extends React.Component {
         const { x, y } = card.getBoundingClientRect();
         card.style.setProperty("--x", e.clientX - x);
         card.style.setProperty("--y", e.clientY - y);
-        console.log(e.clientX-x)
+        console.log(e.clientX - x)
+        //Ich bin extrem homosexuell
       });
     });
   }
