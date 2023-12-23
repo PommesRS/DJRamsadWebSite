@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Hero, NewSongs, SpotifyPreview, Partner, CTA, Footer} from './components';
+import { Navbar, Hero, NewSongs, SpotifyPreview, Partner, CTA, Donate, Footer} from './components';
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -22,6 +22,7 @@ const App = () => (
         <h1 className={`${styles.heading2} ${styles.flexCenter} mt-14 relative`}>Partner</h1>
         <Partner />
         <CTA />
+        <Donate />
       </div>
     </div>
 

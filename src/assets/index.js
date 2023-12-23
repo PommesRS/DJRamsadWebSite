@@ -8,7 +8,7 @@ import menu from './menu.svg';
 import logo from './logo.png';
 import ramsadSpotify from './ramsadSpotify.png'
 import mblSpotify from './MBLSpotify.png'
-
+import paypal from './paypal.png'
 
 export {
     soundcloud,
@@ -21,4 +21,5 @@ export {
     logo,
     ramsadSpotify,
     mblSpotify,
+    paypal,
 }

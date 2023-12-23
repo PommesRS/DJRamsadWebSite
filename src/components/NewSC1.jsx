@@ -16,7 +16,6 @@ const NewSC1 = ({style, link, id}) => (
 
 setTimeout(() => {
     var slider1 = document.getElementById("slider");
-    console.log(slider1)
 
     slider1.oninput = function(){
         var audio = SC.Widget(document.getElementById('audio1'));
