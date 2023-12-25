@@ -10,7 +10,7 @@ const NewSongs = () => (
       <p className={`${styles.paragraph} ${styles.flexCenter} text-center`}>DJRamsad begeistert regelmäßig mit neuer Musik. <br /> Hier sind die neusten tracks!</p>
       <div className={`${styles.flexCenter} flex-wrap md:flex-nowrap flex-col gap-20 my-20 huso`}>
 
-        <div className='w-full flex flex-row gap-5'>
+        <div className='w-full flex flex-col md:flex-row md:gap-5 gap-20'>
           <NewSC1 link={"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1674248652"}/>
           <NewSC2 link={"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1656640377"}/>
         </div>

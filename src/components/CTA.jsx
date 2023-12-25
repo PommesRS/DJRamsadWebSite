@@ -23,7 +23,7 @@ export default class CTA extends React.Component {
           <p className={`${styles.paragraph} max-w-[500px] mt-5`}>Sei die treibende Kraft für DJ Ramsad! Teile deine Ideen und Vorschläge für aufregende Projekte - deine Einflüsse sind gefragt!</p>
         </div>
         <div>
-          <Button content={"Kontakt"} styles={"bg-pink-gradient z-[2]"} className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}/>
+          <Button content={"Kontakt"} styles={"bg-pink-gradient z-[2] mb-5 md:mb-0"} className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}/>
         </div>
       </section>
     )

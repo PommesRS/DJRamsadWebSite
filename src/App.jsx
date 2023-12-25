@@ -19,7 +19,6 @@ const App = () => (
       <div className={`${styles.boxWidth} flex flex-col gap-10`}>
         <NewSongs />
         <SpotifyPreview />
-        <h1 className={`${styles.heading2} ${styles.flexCenter} mt-14 relative`}>Partner</h1>
         <Partner />
         <CTA />
         <Donate />

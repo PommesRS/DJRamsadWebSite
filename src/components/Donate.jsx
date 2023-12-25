@@ -28,7 +28,7 @@ export default class Donate extends React.Component {
                     <h1 className={`${styles.heading2}`}>Unterstütze DJRamsad</h1>
                     <p className={`${styles.paragraph}`}>
                         Wenn die Begeisterung für Spenden an DJ Ramsad, MBL Music oder wohltätige Zwecke euch packt, 
-                        klickt auf den Donate-Button oder scannt den QR-Code. Jeder Beitrag zählt – eure Unterstützung 
+                        klickt auf das PayPal-Logo. Jeder Beitrag zählt – eure Unterstützung 
                         macht einen Unterschied!
                     </p>
 

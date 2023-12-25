@@ -32,7 +32,7 @@ const Navbar = () => {
                         <a href={`#${nav.id}`} >{nav.title}</a>
                     </li>
                 ))}
-                <li><Button content={"Kontakt"} bg={"bg-pink-gradient"} styles={'mt-4'}/></li>
+                <li><Button content={"Kontakt"} styles={'mt-4 bg-pink-gradient'}/></li>
             </ul>
         </div>
     </div>
