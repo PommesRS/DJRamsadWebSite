@@ -10,7 +10,7 @@ const partner = () => (
         
         <div className='md:flex md:flex-row'>
 
-        <img src={mblSpotify} className='md:w-2/4 md:-mr-20 z-[0] rounded-3xl md:hover:-mt-5 md:hover:mb-5 duration-75 ease-linear blur-sm opacity-50 md:blur-0'/>
+        <img src={mblSpotify} className='md:w-2/4 md:-mr-20 z-[0] rounded-3xl md:hover:-mt-5 md:hover:mb-5 duration-75 ease-linear blur-sm opacity-50 md:blur-0 md:opacity-100'/>
              
         <div className='hidden md:block z-[2] pointer-events-none text-end'>
             <p className={`${styles.paragraph} leading-3 text-secondary`}>Spotify</p>
