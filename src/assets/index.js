@@ -9,6 +9,7 @@ import logo from './logo.png';
 import ramsadSpotify from './ramsadSpotify.png'
 import mblSpotify from './MBLSpotify.png'
 import paypal from './paypal.png'
+import waves from './contour-lines.svg'
 
 export {
     soundcloud,
@@ -22,4 +23,5 @@ export {
     ramsadSpotify,
     mblSpotify,
     paypal,
+    waves,
 }

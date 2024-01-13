@@ -7,6 +7,9 @@ import Partner from "./partner";
 import CTA from "./CTA";
 import Footer from "./Footer";
 import Donate from "./Donate";
+import Landing from "./Landing";
+import Contact from "./Contact";
+import EmailForm from "./EmailForm"
 
 export{
     Navbar,
@@ -17,5 +20,8 @@ export{
     Partner,
     CTA,
     Footer,
-    Donate
+    Donate,
+    Landing,
+    Contact,
+    EmailForm,
 }

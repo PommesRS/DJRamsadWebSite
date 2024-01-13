@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-Radial': "radial-gradient(var(--tw-gradient-stops))",
+        'email-form': "url('/src/assets/contour-lines.svg')",
       }
     },
     screens: {

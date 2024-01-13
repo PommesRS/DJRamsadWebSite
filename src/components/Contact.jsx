@@ -1,0 +1,35 @@
+import React from 'react'
+import styles from "../style";
+import { EmailForm } from '.';
+
+const Contact = () => (
+    <div className=" w-full overflow-hidden ">
+        <div className={`${styles.paddingX} ${styles.flexCenter} `}>
+            
+            <div className={`${styles.boxWidth} absolute top-1/4 `}>
+                <div className={`flex md:flex-row flex-col gap-10 md:gap-0 ${styles.paddingY} h-[100%] w-full`}>
+                    
+                    <div className={`flex-1 ${styles.flexStart}  flex-col xl:px-0 sm:px-16 px-6`}>
+                        
+                        <div className='absolute z-[0] w-[30%] h-[30%] right-20 rounded-full pink__gradient'/>
+                        <div className=" flex flex-row justify-between items-center w-full">
+                        <h1 className="flex-1 flex-wrap font-poppins font-semibold z-[4] text-[35px] xs:text-[65px] text-center ss:text-left md:text-[52px] text-white xs:leading-[80.8px] leading-[45px]">
+                            Hilf mit bei <br className="sm:block hidden" /> <span className="text-gradient">DJ Ramsad</span>! 
+                        </h1>
+                        </div>
+
+                        <p className={`flex ${styles.paragraph} max-w-[470px] mt-5`}> Sei die treibende Kraft für DJ Ramsad! Teile deine Ideen und Vorschläge für aufregende Projekte - deine Einflüsse sind gefragt! </p>
+
+                    </div>
+                    <div className={`flex-1 gap-5 w-full flex ${styles.flexCenter} `}>
+                        <EmailForm />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+)
+
+
+export default Contact

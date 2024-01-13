@@ -1,36 +1,29 @@
 import styles from "./style";
-import { Navbar, Hero, NewSongs, SpotifyPreview, Partner, CTA, Donate, Footer} from './components';
+import { Navbar, Landing, Contact } from './components'
+import { Route, Routes } from 'react-router-dom'
+
 
 const App = () => (
+
   <div className="bg-primary w-full overflow-hidden">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar />
+        <a href='/' className=' text-white text-[60px] font-bold hover:-ml-2 rounded-full leading-[60px] relative'> <span>&larr;</span> </a>
       </div>
     </div>
 
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Hero />
-      </div>
-    </div>
+    
 
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth} flex flex-col gap-10`}>
-        <NewSongs />
-        <SpotifyPreview />
-        <Partner />
-        <CTA />
-        <Donate />
-      </div>
-    </div>
+    <Routes>
 
-    <footer className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Footer />
-      </div>
-    </footer>
+      <Route path='/' Component={Landing} />
+      <Route path='/contact' Component={Contact}/>
+
+    </Routes>
+
   </div>
-);
+)
+
 
 export default App
