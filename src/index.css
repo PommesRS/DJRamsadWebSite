@@ -16,13 +16,27 @@
   background: #0C071A;
 }
 
-html{
-  scrollbar-gutter: stable both-edges;
-}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #731588 #2c1e52;
+  }
 
-* {
-  scroll-behavior: smooth;
-}
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #2c1e52;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #731588;
+    border-radius: 10px;
+    border: 0px none #ffffff;
+  }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -208,7 +222,7 @@ input:-webkit-autofill:active{
   height: 400px;
   background: radial-gradient(rgb(99, 14, 138), rgba(170, 20, 240, 0));
   filter: blur(150px);
-  border-radius: 9999999999999rem;
+  border-radius: 9999999999rem;
   opacity: 0;
   z-index: 1;
   transition: opacity 0.3s;
@@ -217,6 +231,44 @@ input:-webkit-autofill:active{
 
 .hover-effect2:hover::after {
   opacity: 1;
+}
+
+
+.mailform{
+  position: relative;
+  background-size: 350%;
+  transform-style: preserve-3d;
+  transform: 
+    perspective(5000px)
+    rotateY(var(--rotateY))
+    rotateX(var(--rotateX));
+}
+
+.mailform::after,
+.mailform::before{
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+}
+
+.mailform::before{
+  inset: 0.75rem;
+  background: black;
+  transform: translateZ(-34px);
+  filter: blur(15px);
+  opacity: 0.5;
+}
+
+.mailform::after{
+  inset: -1rem;
+  background: linear-gradient(-79deg, #130428 0%, #38126D 60%,#190634 100%);
+  border: 4px solid #4F228D;
+  box-shadow: 0px 10px 50px -15px rgb(0, 0, 0);
+  transform: translateZ(-35px);
+}
+
+.form-input::placeholder{
+  color: rgba(255, 255, 255, 0.507);
 }
 
 .form-input{
@@ -231,17 +283,8 @@ input:-webkit-autofill:active{
   outline: none;
   -webkit-transition: 0.25s;
   transition: 0.25s;
-  z-index: 3;
+  z-index: 2;
 }
-
-form{
-  background-size: 350%;
-}
-
-.form-input::placeholder{
-  color: rgba(255, 255, 255, 0.507);
-}
-
 .form-input:invalid{
   border: 2px solid #ffffff2d;
 
@@ -253,7 +296,6 @@ form{
 
 .form-input:focus{
   border: 2px solid #C824EC;
-  box-shadow: 0px 10px 50px -15px rgb(0, 0, 0);
 }
 
 

@@ -20,11 +20,7 @@ const Landing = () => (
           </div>
         </div>
 
-        <footer className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Footer />
-          </div>
-        </footer>
+        
     </div>
 )
 

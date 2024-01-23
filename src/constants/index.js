@@ -137,22 +137,27 @@ export const footerLinks = [
       {
         name: "Spotify",
         link: "https://open.spotify.com/intl-de/artist/3fK3t9pN1XTkq2KiIGO3Pz",
+        target: '_blank',
       },
       {
         name: "Amazon Music",
         link: "https://music.amazon.de/artists/B09RPL8V3S/dj-ramsad",
+        target: '_blank',
       },
       {
         name: "Soundcloud",
         link: "https://soundcloud.com/dj_ramsad",
+        target: '_blank',
       },
       {
         name: "Twitch",
         link: "https://www.twitch.tv/djramsad",
+        target: '_blank',
       },
       {
         name: "Youtube",
         link: "https://www.youtube.com/channel/UCAIrKKlznU2W1co-bZdz5FA",
+        target: '_blank',
       },
     ],
   },
@@ -161,7 +166,7 @@ export const footerLinks = [
     links: [
       {
         name: "Kontakt",
-        link: "#",
+        link: "/contact",
       },
     ],
   },
@@ -171,6 +176,7 @@ export const footerLinks = [
       {
         name: "MBL Music",
         link: "https://open.spotify.com/intl-de/artist/3sE0lstEyTyl05QygpiR0k?si=SJ13hXJAQreFdzYAWCra2Q",
+        target: '_blank',
       },
     ],
   },
