@@ -1,21 +1,20 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { waves } from '../assets'
 
 export const EmailForm = () => {
     const mailform = useRef();
-
+    
     const sendEmail = (e) => {
-    e.preventDefault();
-    e.target.reset()
-    emailjs.sendForm('service_DJRamsadTes', 'template_zyvtric', mailform.current, 'V76EhoGQU2lQ5PXKW')///////////////put 't' at the end of service id to let it function properly
-        .then((result) => {
-            console.log(result.text);
-            alert('Email send!')
-
-        }, (error) => {
-            console.log(error.text);
-        });
+        e.preventDefault();
+        
+        emailjs.sendForm('service_c86jje7', 'template_zyvtric', mailform.current, 'V76EhoGQU2lQ5PXKW')
+            .then((result) => {
+                console.log(result.text);
+                alert('Email send!')
+                e.target.reset()
+            }, (error) => {
+                console.log(error.text);
+            });
     };
 
     window.onload = () => {
@@ -37,7 +36,6 @@ export const EmailForm = () => {
             const offsetX = ((middleX - x + element.offsetWidth / 2) / element.offsetWidth / 2 ) * 30 ;
             const offsetY = ((middleY - y + element.offsetHeight / 2) / element.offsetHeight / 2) * 30;
 
-            console.log(offsetX, offsetY );
             form.style.setProperty("--rotateX", offsetY + "deg")
             form.style.setProperty("--rotateY", 0 - offsetX + "deg")
 
@@ -47,11 +45,11 @@ export const EmailForm = () => {
 
 
   return (
-      <form className={` mailform flex flex-col gap-5 w-[35rem] p-5 rounded-3xl relative`} ref={mailform} onSubmit={sendEmail}>
+      <form id='form' className={` mailform flex flex-col gap-5 w-[35rem] p-5 rounded-3xl relative`} ref={mailform} onSubmit={sendEmail}>
         <input placeholder='Name' type="text" name="from_name" required className='form-input' />
-        <input placeholder='Your Email' type="email" name="from_email" required className='form-input' />
-        <textarea placeholder='Message' name="message" required className='form-input h-36' />
-        <input type="submit" value="Send" className='relative py-4 px-8 font-poppins font-medium text-[18px] text-white outline-none rounded-[10px] bg-pink-gradient hover:cursor-pointer active:mt-[0.15rem] active:-mb-[0.15rem] active:box-shadow-2' />
+        <input placeholder='Deine Email' type="email" name="from_email" required className='form-input' />
+        <textarea placeholder='Nachricht' name="message" required className='form-input h-36' />
+        <input type="submit" value="Abseden" className='relative py-4 px-8 font-poppins font-medium text-[18px] text-white outline-none rounded-[10px] bg-pink-gradient hover:cursor-pointer active:mt-[0.15rem] active:-mb-[0.15rem] active:box-shadow-2' />
       </form>
   );
 };

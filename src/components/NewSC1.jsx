@@ -14,13 +14,12 @@ const NewSC1 = ({style, link, id}) => (
   )
 
 
-setTimeout(() => {
+  setTimeout(() => {
     var slider1 = document.getElementById("slider");
 
     slider1.oninput = function(){
         var audio = SC.Widget(document.getElementById('audio1'));
         audio.setVolume(slider1.value);
-        console.log('arsch')
     }
 }, "1000")
 

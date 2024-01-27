@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Landing, Contact, Footer } from './components'
+import { Navbar, Landing, Register, Login, Contact, Footer } from './components'
 import { Routes, Route, HashRouter as Router } from 'react-router-dom'
 
 const App = () => (
@@ -13,7 +13,9 @@ const App = () => (
 
     <Routes>
       <Route path='/' Component={Landing} />
-      <Route path='/:contact' Component={Contact}/>
+      <Route path='/contact' Component={Contact}/>
+      <Route path='/register' Component={Register}/>
+      <Route path='/login' Component={Login}/>
     </Routes>
 
     <footer className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>

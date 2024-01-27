@@ -20,7 +20,6 @@ setTimeout(() => {
     slider2.oninput = function(){
         var audio = SC.Widget(document.getElementById('audio2'));
         audio.setVolume(slider2.value);
-        console.log('arsch')
     }
 }, "1000")
 

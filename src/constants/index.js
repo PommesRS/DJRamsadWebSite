@@ -13,6 +13,11 @@ export const navLinks = [
     id: "/#partner",
     title: "Partner",
   },
+  {
+    id: "/login",
+    title: "Anmelden",
+  },
+  
 ];
 
 export const socials = [
@@ -167,6 +172,14 @@ export const footerLinks = [
       {
         name: "Kontakt",
         link: "/contact",
+      },
+      {
+        name: "Anmelden",
+        link: "/login",
+      },
+      {
+        name: "Registrieren",
+        link: "/register",
       },
     ],
   },

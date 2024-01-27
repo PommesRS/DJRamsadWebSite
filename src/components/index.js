@@ -10,6 +10,8 @@ import Donate from "./Donate";
 import Landing from "./Landing";
 import Contact from "./Contact";
 import EmailForm from "./EmailForm"
+import Register from "./Register";
+import Login from "./Login";
 
 export{
     Navbar,
@@ -24,4 +26,6 @@ export{
     Landing,
     Contact,
     EmailForm,
+    Register,
+    Login,
 }
