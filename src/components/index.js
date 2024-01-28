@@ -12,6 +12,9 @@ import Contact from "./Contact";
 import EmailForm from "./EmailForm"
 import Register from "./Register";
 import Login from "./Login";
+import AdminMain from "./admin/AdminMain";
+import RequireAuth from "./admin/RequireAuth";
+import Users from "./admin/Users";
 
 export{
     Navbar,
@@ -28,4 +31,7 @@ export{
     EmailForm,
     Register,
     Login,
+    AdminMain,
+    RequireAuth,
+    Users,
 }

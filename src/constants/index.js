@@ -2,7 +2,7 @@ import { soundcloud,  spotify, twitch, youtube } from "../assets";
 
 export const navLinks = [
   {
-    id: "/",
+    id: "/admin/users",
     title: "Start",
   },
   {
