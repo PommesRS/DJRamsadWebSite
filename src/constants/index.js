@@ -2,7 +2,7 @@ import { soundcloud,  spotify, twitch, youtube } from "../assets";
 
 export const navLinks = [
   {
-    id: "/admin/users",
+    id: "/",
     title: "Start",
   },
   {
@@ -13,11 +13,13 @@ export const navLinks = [
     id: "/#partner",
     title: "Partner",
   },
+];
+
+export const accountLinks = [
   {
-    id: "/login",
-    title: "Anmelden",
+    id: "/admin/users",
+    title: "Admin Dashboard",
   },
-  
 ];
 
 export const socials = [

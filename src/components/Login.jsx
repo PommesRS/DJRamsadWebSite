@@ -7,7 +7,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const LOGIN_URL = '/auth'
 
 const Login = () => {
-    const { setAuth } = useAuth();
+    const { setAuth, persist, setPersist } = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -42,11 +42,14 @@ const Login = () => {
                 }
             );
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
+            console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
+            const username = response?.data?.username;
 
-            setAuth({user, pwd, roles, accessToken});
+            setAuth({user, pwd, roles, accessToken, username});
+            localStorage.setItem("isLoggedIn", true);
+            localStorage.setItem("username", username);
             setUser('');
             setPwd('');
             navigate(from, { replace: true });
@@ -65,6 +68,14 @@ const Login = () => {
         }
 
     }
+
+    const togglePersist = () => {
+        setPersist(prev => !prev);
+    }
+
+    useEffect(() => {
+        localStorage.setItem("persist", persist);
+    }, [persist])
 
     return (
         <section className='w-full overflow-hidden relative z-[1] text-white'>
@@ -100,6 +111,15 @@ const Login = () => {
                         />
 
                         <button className='relative py-4 px-8 font-poppins font-medium text-[18px] text-white outline-none rounded-[10px] bg-pink-gradient hover:rounded-3xl duration-75 ease-linear active:mt-[0.15rem] active:-mb-[0.15rem] active:box-shadow-2'>Anmelden</button>
+                        <div className=''>
+                            <input 
+                                type="checkbox"
+                                id='persist'
+                                onChange={togglePersist}
+                                checked={persist}
+                            />
+                            <label htmlFor="persist"> Angemeldet bleiben</label>
+                        </div>
                     </form>
                     <p>
                         Noch kein Konto?<br />

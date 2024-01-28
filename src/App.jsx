@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Landing, Register, Login, Contact, Footer, AdminMain, Users, RequireAuth } from './components'
+import { Navbar, Landing, Register, Login, Contact, Footer, AdminMain, Users, RequireAuth, PersistLogin } from './components'
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => (
@@ -13,19 +13,23 @@ const App = () => (
 
     <Routes>
       {/* Public Routes */}
-      <Route path='/' Component={Landing} />
-      <Route path='/contact' Component={Contact}/>
-      <Route path='/register' Component={Register}/>
-      <Route path='/login' Component={Login}/>
+      <Route element={<PersistLogin/>}>
+        <Route path='/' Component={Landing} />
+        <Route path='/contact' Component={Contact}/>
+        <Route path='/register' Component={Register}/>
+        <Route path='/login' Component={Login}/>
 
-      {/* Protected Routes */}
-      <Route element={<RequireAuth allowedRoles={[5150]}/>}>
-        <Route path='/admin' Component={AdminMain}>
-          <Route path='users' Component={Users}/>
+        {/* Protected Routes */}
+        <Route element={<RequireAuth allowedRoles={[5150]}/>}>
+          <Route path='admin' Component={AdminMain}>
+            <Route path='users' Component={Users}/>
+          </Route>
         </Route>
-      </Route>
+      
 
-      <Route path="*" Component={{/* *TODO* -> add 404 page */}}/>
+        {/* Fallback Route -> Err 404 */}
+        <Route path="*" Component={{/* *TODO* -> add 404 page */}}/>
+      </Route>
     </Routes>
 
     <footer className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>

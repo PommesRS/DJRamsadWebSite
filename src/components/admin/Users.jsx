@@ -36,13 +36,20 @@ const Users = () => {
 
     return (
         <article className="text-white">
-            <h2>Users List</h2>
             {
                 users?.length
                     ?(
-                        <ul>
-                            {users.map((user, i) => <li key={i}>{user?.username}</li>)}
-                        </ul>
+                        <table className="w-full">
+                            <thead>
+                                <tr className="text-left">
+                                    <th>Username</th>
+                                    <th>User Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {users.map((user, i) => <tr key={i}><td>{user?.username}</td><td>{user?.roles.User}</td></tr>)}
+                            </tbody>
+                        </table>
                     ) : <p>No users to display</p>
             }
         </article>

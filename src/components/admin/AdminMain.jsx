@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../../style'
 import { Outlet, Link } from 'react-router-dom';
+import useLogout from '../../hooks/useLogout';
 
 const AdminMain = () => {
   return (
@@ -9,7 +10,7 @@ const AdminMain = () => {
             <div className={`${styles.boxWidth}  h-[100dvh]`}>
                 <h1 className={`${styles.heading2} relative text-center`}>Admin Page</h1>
                     <Outlet />
-                <Link to={'/'}>Arsch</Link>
+                <button onClick={useLogout()}>Arsch</button>
             </div>
         </div>
     /</div>

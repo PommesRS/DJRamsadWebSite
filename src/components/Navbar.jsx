@@ -3,12 +3,14 @@ import {logo, close, menu} from '../assets';
 import {navLinks} from '../constants'
 import { useState } from 'react';
 import Button from "./Button";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
+import NavbarLogin from "./NavbarLogin";
 
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
+
     return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
     <div className='absolute z-[0] w-[30%] h-[30%] left-[20] rounded-full pink__gradient'/>
@@ -21,6 +23,7 @@ const Navbar = () => {
             </Link>
           </li>
         ))}
+        <li><NavbarLogin /></li>
       </ul>
 
     <div className="sm:hidden flex flex-1 justify-end items-center ">

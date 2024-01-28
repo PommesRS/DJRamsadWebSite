@@ -15,6 +15,8 @@ import Login from "./Login";
 import AdminMain from "./admin/AdminMain";
 import RequireAuth from "./admin/RequireAuth";
 import Users from "./admin/Users";
+import PersistLogin from "./admin/PersistLogin";
+import NavbarLogin from "./NavbarLogin";
 
 export{
     Navbar,
@@ -34,4 +36,6 @@ export{
     AdminMain,
     RequireAuth,
     Users,
+    PersistLogin,
+    NavbarLogin,
 }
