@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
+import styles from "../../style";
 
 const Users = () => {
     const [users, setUsers ] = useState();
@@ -38,18 +39,21 @@ const Users = () => {
         <article className="text-white">
             {
                 users?.length
-                    ?(
-                        <table className="w-full">
-                            <thead>
-                                <tr className="text-left">
-                                    <th>Username</th>
-                                    <th>User Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {users.map((user, i) => <tr key={i}><td>{user?.username}</td><td>{user?.roles.User}</td></tr>)}
-                            </tbody>
-                        </table>
+                    ?(  
+                        <div>
+                            <h1 className={`${styles.heading2}`}>Users</h1>
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="text-left">
+                                        <th>Username</th>
+                                        <th>User Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {users.map((user, i) => <tr key={i}><td>{user?.username}</td><td>{user?.roles.User}</td></tr>)}
+                                </tbody>
+                            </table>
+                        </div>
                     ) : <p>No users to display</p>
             }
         </article>

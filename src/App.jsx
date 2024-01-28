@@ -20,7 +20,7 @@ const App = () => (
         <Route path='/login' Component={Login}/>
 
         {/* Protected Routes */}
-        <Route element={<RequireAuth allowedRoles={[5150]}/>}>
+        <Route element={<RequireAuth allowedRoles={[187]}/>}>
           <Route path='admin' Component={AdminMain}>
             <Route path='users' Component={Users}/>
           </Route>
@@ -28,7 +28,7 @@ const App = () => (
       
 
         {/* Fallback Route -> Err 404 */}
-        <Route path="*" Component={{/* *TODO* -> add 404 page */}}/>
+        <Route path="*" element={<div className={`${styles.flexCenter} ${styles.heading2} flex-col relative`}>404 <p> Site not found.</p></div>}/>
       </Route>
     </Routes>
 

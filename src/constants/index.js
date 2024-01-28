@@ -17,7 +17,7 @@ export const navLinks = [
 
 export const accountLinks = [
   {
-    id: "/admin/users",
+    id: "#/admin/users",
     title: "Admin Dashboard",
   },
 ];
@@ -173,15 +173,15 @@ export const footerLinks = [
     links: [
       {
         name: "Kontakt",
-        link: "/contact",
+        link: "#/contact",
       },
       {
         name: "Anmelden",
-        link: "/login",
+        link: "#/login",
       },
       {
         name: "Registrieren",
-        link: "/register",
+        link: "#/register",
       },
     ],
   },

@@ -1,14 +1,12 @@
 import React from 'react'
 import styles from "../style";
 import { EmailForm } from '.';
-import Navbar from './Navbar';
 
 const Contact = () => (
     <div className=" w-full overflow-hidden ">
         <div className={`${styles.paddingX} ${styles.flexCenter} `}>
             
             <div className={`${styles.boxWidth} top-1/4 `}>
-            <Navbar />
                 <div className={`flex md:flex-row flex-col gap-10 md:gap-0 ${styles.paddingY}  h-[100%] w-full`}>
                     
                     <div className='absolute z-[0] w-[30%] h-[30%] right-20 rounded-full pink__gradient'/>
