@@ -1,9 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import emailjs from '@emailjs/browser';
 import { waves } from '../assets'
+import { AuthContext } from '../auth';
 
 export const EmailForm = () => {
     const mailform = useRef();
+
+    const {currentUser} = useContext(AuthContext);
+    console.log(currentUser)
 
     const sendEmail = (e) => {
     e.preventDefault();
@@ -21,7 +25,6 @@ export const EmailForm = () => {
     window.onload = () => {
 
         const form = document.querySelector('form');
-        const tx = document.querySelector('textarea');
 
         document.addEventListener('mousemove', (e) => {
             rotateElement(e, form);

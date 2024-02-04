@@ -16,6 +16,8 @@ import NavbarLogin from "./NavbarLogin";
 import AdminMain from "./admin/AdminMain";
 import Users from './admin/Users'
 import Inbox from './admin/Inbox'
+import EmailFormNew from "./EmailFormNew";
+import EmailReader from './admin/EmailReader'
 
 export{
     Navbar,
@@ -30,10 +32,12 @@ export{
     Landing,
     Contact,
     EmailForm,
+    EmailFormNew,
     Login,
     Register,
     NavbarLogin,
     AdminMain,
     Users,
     Inbox,
+    EmailReader,
 }

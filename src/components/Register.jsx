@@ -1,17 +1,24 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useContext } from 'react'
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styles from "../style";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import { AuthContext } from "../auth";
 
 
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
+    const {currentUser}  = useContext(AuthContext);
+
+    if (currentUser) {
+        return <Navigate to={'/'}></Navigate>
+    }
+
     const emailRef = useRef();
     const nameRef = useRef();
     const errRef = useRef();
@@ -62,7 +69,6 @@ const Register = () => {
 
         createUserWithEmailAndPassword(auth, email, pwd).then(async (userCredentials) => {
             const user = userCredentials.user;
-            console.log(user);
             await setDoc(doc(db, 'users', user.uid), {
                 userName: name,
                 userRole: 420,
@@ -74,6 +80,8 @@ const Register = () => {
         })
 
     }
+
+    
 
     return (
         <>

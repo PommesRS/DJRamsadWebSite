@@ -175,6 +175,14 @@ export const footerLinks = [
         name: "Kontakt",
         link: "#/contact",
       },
+      {
+        name: "Anmelden",
+        link: "#/login",
+      },
+      {
+        name: "Registrieren",
+        link: "#/register",
+      },
     ],
   },
   {

@@ -35,7 +35,7 @@ const Navbar = () => {
                         <a href={nav.id} >{nav.title}</a>
                     </li>
                 ))}
-                <li><Button content={"Kontakt"} styles={'mt-4 bg-pink-gradient'}/></li>
+                <li className="pt-3 mt-4 border-t-[1px] border-neutral-400"><NavbarLogin /></li>
             </ul>
         </div>
     </div>

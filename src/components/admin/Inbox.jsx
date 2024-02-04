@@ -1,69 +1,94 @@
 import { useState, useEffect } from "react"
-import { useNavigate, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styles from "../../style";
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase';
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const Users = () => {
-    const [users, setUsers] = useState();
+const Inbox = () => {
+    const [mails, setMails] = useState(null);
+    const [mailToRead, setMailToRead] = useState(null);
+    const [reload, setReaload] =useState(false);
+    console.log(mailToRead)
+
+    const deleteMail = async (mail) => {
+        await deleteDoc(doc(db, 'inbox', mail.id));
+        setReaload(true);
+    }
 
     useEffect(() => {
         let isMounted = true;
 
-        const getUsers = async () => {
+        const getMails = async () => {
             try {
-                await getDocs(collection(db, "users")).then((querySnapshot)=>{               
+                await getDocs(collection(db, "inbox")).then((querySnapshot)=>{               
                 const newData = querySnapshot.docs.map((doc) => ({
                     ...doc.data(), id:doc.id 
                 }));
-                setUsers(newData);                
-                console.log(users);
+                setMails(newData);                
                 })
+                setReaload(false);
 
             }catch (err) {
                 console.error(err);
             }
         }
 
-        getUsers();
+        getMails();
 
         return () => {
             isMounted = false;
         }
 
-    }, []);
+    }, [reload]);
 
     if (!true) {
         return <h1>Loading</h1>;
     }
-
+    
     return (
         <article className="text-white">
-            {users
-                    ? (  
+            {mails?.length ? !mailToRead ? (
                         <div>
                             <h1 className={`${styles.heading2}`}>Posteingang</h1>
-                            <table className="w-full">
-                                <thead>
-                                    <tr className="text-left">
-                                        <th>Username</th>
-                                        <th>User Role</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {users?.map((user, i) => 
-                                        <tr key={i} className="border-b-[1px] border-gray-600">
-                                            <td className="py-4">{user.userName}</td>
-                                            <td>{user.userRole}</td>
+                            <table className="w-full border-collapse box-shadow-2 bg-primary rounded-2xl lg:table-fixed">
+                                    <thead>
+                                        <tr className="text-left bg-[#4F228D] rounded-2xl">
+                                            <th className="p-5 rounded-tl-2xl">
+                                                <span className="flex flex-col">
+                                                    <span>Nutzername</span>
+                                                    <span className="text-neutral-300">Email</span>
+                                                </span>
+                                            </th>
+                                            <th className="p-4">Nachricht</th>
+                                            <th className="p-4">Empfangen</th>
+                                            <th className="p-4 rounded-tr-2xl text-center">Löschen</th>
                                         </tr>
-                                    )}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {mails?.map((mail, i) => 
+                                            <tr key={i} onClick={(e) => {setMailToRead(mail)}} className={`border-t-2 border-neutral-600 hover:bg-[#3d1870]`}>
+                                                <td className={` p-4 ${i === mails?.length - 1 ? 'rounded-bl-2xl' : ''}`}>
+                                                    <span className="flex flex-col">
+                                                        <span className="pointer-events-none">{mail.userName}</span>
+                                                        <span className=" text-neutral-400 pointer-events-non">{mail.userEmail}</span>
+                                                    </span>
+                                                </td>
+                                                <td className={`p-4 whitespace-nowrap overflow-hidden text-ellipsis max-w-xs`}>{mail.userMessage}</td>
+                                                <td className={`p-4`}>{mail.createDate}</td>
+                                                <td className={` p-4 text-center ${i === mails?.length - 1 ? 'rounded-br-2xl' : ''}`}><FontAwesomeIcon onClick={(e) => {deleteMail(mail); e.stopPropagation()}} className="hover:cursor-pointer hover:text-red-600" icon={faTrashCan}/></td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                                
                         </div>
-                    ) : <p>No users to display</p>
+                    ) : <Outlet context={[mailToRead, setMailToRead]}/> : 
+                    <p>No mails to display</p>
             }
         </article>
     )
 }
 
-export default Users
+export default Inbox

@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Users = () => {
     const [users, setUsers] = useState();
+    const [reload, setReaload] =useState(false);
+
 
     const degradeUser = async (id) => {
         try {
@@ -15,7 +17,7 @@ const Users = () => {
             await updateDoc(doc(db, "users", id), {
                 userRole: 420
             });
-            
+            setReaload(true);
 
         }catch (err) {
             console.error(err);
@@ -28,6 +30,8 @@ const Users = () => {
             await updateDoc(doc(db, "users", id), {
                 userRole: 187
             });
+            setReaload(true);
+
 
         }catch (err) {
             console.error(err);
@@ -41,10 +45,11 @@ const Users = () => {
             try {
                 await getDocs(collection(db, "users")).then((querySnapshot)=>{               
                 const newData = querySnapshot.docs.map((doc) => ({
-                    ...doc.data(), id:doc.id 
+                    ...doc.data(), id:doc.id
                 }));
+
                 setUsers(newData);                
-                console.log(users);
+                setReaload(false);
                 })
 
             }catch (err) {
@@ -58,7 +63,7 @@ const Users = () => {
             isMounted = false;
         }
 
-    }, [degradeUser, upgradeUser]);
+    }, [reload]);
 
     if (!true) {
         return <h1>Loading</h1>;
@@ -90,7 +95,7 @@ const Users = () => {
                                                 <td className={` p-4 ${i === users?.length - 1 ? 'rounded-bl-2xl' : ''}`}>
                                                     <span className="flex flex-col">
                                                         <span className="pointer-events-none">{user.userName}</span>
-                                                        <span className=" text-neutral-400 pointer-events-non">{user.id}</span>
+                                                        <span className=" text-neutral-400">{user.userEmail}</span>
                                                     </span>
                                                 </td>
                                                 <td className={`p-5`}>{user.userRole}</td>

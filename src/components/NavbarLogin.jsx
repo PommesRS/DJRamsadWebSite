@@ -22,10 +22,6 @@ const NavbarLogin = () => {
         }
     }
 
-    useEffect(() => {
-        console.log(currentUser)
-    }, [currentUser])
-
     return (
         //<button className='text-white bg-violet-900 px-4 py-1 rounded-full' onClick={() => setToggle((prev) => !prev)}> {localStorage.getItem('username')} <FontAwesomeIcon icon={faCaretDown}/></button>
         <>

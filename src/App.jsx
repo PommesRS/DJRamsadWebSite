@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox } from './components'
+import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox, EmailReader } from './components'
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import { Routes, Route } from 'react-router-dom'
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -9,7 +9,6 @@ import React from 'react'
 
 const App = () => {
   const {currentUser}  = useContext(AuthContext);
-  console.log(currentUser?.userRole)
 
   return(
 
@@ -33,7 +32,9 @@ const App = () => {
         <Route element={<ProtectedRoute currentUserRole={currentUser?.userRole} allowedRole={187}/>}>
           <Route path='admin' Component={AdminMain}>
             <Route path='users' Component={Users}/>
-            <Route path='inbox' Component={Inbox}/>
+            <Route path='inbox' Component={Inbox}>
+              <Route path='read' Component={EmailReader}/>
+            </Route>
           </Route>
         </Route>
         

@@ -30,7 +30,6 @@ const Login = () => {
 
         signInWithEmailAndPassword(auth, user, pwd).then((userCredentials) => {
             const user = userCredentials.user;
-            console.log(user);
         }).catch((error) => {
 
             setErrMsg(error.code, error.message);
@@ -39,7 +38,6 @@ const Login = () => {
     }
 
     if (currentUser) {
-        console.log('penis')
         return <Navigate to={'/'}></Navigate>
     }
 
@@ -77,13 +75,6 @@ const Login = () => {
                         />
 
                         <button className='relative py-4 px-8 font-poppins font-medium text-[18px] text-white outline-none rounded-[10px] bg-pink-gradient hover:rounded-3xl duration-75 ease-linear active:mt-[0.15rem] active:-mb-[0.15rem] active:box-shadow-2'>Anmelden</button>
-                        <div className=''>
-                            <input 
-                                type="checkbox"
-                                id='persist'
-                            />
-                            <label htmlFor="persist"> Angemeldet bleiben</label>
-                        </div>
                     </form>
                     <p>
                         Noch kein Konto?<br />

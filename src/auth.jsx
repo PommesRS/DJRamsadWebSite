@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }) => {
                     userRole: docSnap.data().userRole
                 }
                 user = {...user, ...dbUserData}
-                console.log('new obj: ' + user.userRole)
                 setCurrentUser(user);
                 setIsFetching(false);
             }else{

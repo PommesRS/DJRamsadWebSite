@@ -5,32 +5,36 @@ import { useState } from 'react';
 
 const AdminMain = () => {
   console.log('admin')
-  const [activeId, setActiveId] = useState(1);
+  var urlArr = [];
+  urlArr = JSON.stringify(window.location.href).split('/');
+  urlArr = urlArr[urlArr.length - 1].split('"')
+  const [activeId, setActiveId] = useState(urlArr[0]);
+  console.warn(urlArr)
 
   const handleClick = (e) => {
     setActiveId(e.target.id);
   }
 
   return (
-    <div className="bg-primary w-full overflow-hidden ">
+    <div className=" w-full overflow-hidden font-poppins mt-[5dvh]">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`w-full`}>
-                    <div className="relative flex flex-row gap-10 h-full overflow-hidden ">
+                    <div className="relative flex flex-col lg:flex-row gap-10 h-full overflow-hidden ">
 
-                      <div className='w-1/4 border-[#4F228D] h-[80dvh] border-4 box-shadow-2 rounded-3xl bg-black-gradient-2 '>
-                        <ul>
-                          <li className={`${styles.heading2} p-5`}>Überblick</li>
-                          <li className='w-full flex'>
-                            <Link id='1' to={'/admin/users'} onClick={handleClick} className={`w-full py-3 text-white relative hover:bg-[#4F228D] ${activeId == 1 ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute' : ''}`}>
-                              <span id='1' className='ml-5'>Beutzerkonten</span>
-                              </Link>
-                            </li>
-                          <li className='w-full flex'>
-                            <Link id='2' to={'/admin/inbox'} onClick={handleClick} className={`w-full py-3 text-white relative hover:bg-[#4F228D] ${activeId == 2 ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute' : ''}`}>
-                              <span id='2' className='ml-5'>Posteingang</span>
-                              </Link>
-                            </li>
-                        </ul>
+                      <div className=' w-full lg:w-1/4 border-[#4F228D] lg:h-[80dvh] border-4 box-shadow-2 rounded-3xl bg-black-gradient-2 '>
+                        <div className='flex flex-col'>
+                          <h1 className={`${styles.heading2} px-5 pt-5`}>Überblick</h1>
+                          <span className='w-full flex'>
+                            <Link id='users' to={'/admin/users'} onClick={handleClick} className={` flex items-center w-full py-3 text-white relative hover:bg-[#4F228D] duration-75 ease-linear ${activeId == 'users' ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute font-semibold' : ''}`}>
+                              <span id='users' className='ml-5'>Beutzerkonten</span>
+                            </Link>
+                          </span>
+                          <span className='w-full flex '>
+                            <Link id='read' to={'/admin/inbox/read'} onClick={handleClick} className={`flex items-center rounded-b-2xl lg:rounded-none w-full py-3 text-white relative hover:bg-[#4F228D] overflow-hidden duration-75 ease-linear ${activeId == 'read' ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute font-semibold' : ''}`}>
+                              <span id='read' className='ml-5 '>Posteingang</span>
+                            </Link>
+                          </span>
+                        </div>
                       </div>
 
                       <div className='bg-[#252525] w-full h-fit overflow-hidden box-shadow-2 rounded-3xl border-[#4F228D] border-4 bg-black-gradient-2'>

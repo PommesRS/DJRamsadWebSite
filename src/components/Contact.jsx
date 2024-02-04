@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from "../style";
-import { EmailForm } from '.';
+import { EmailFormNew } from '.';
+import { AuthContext } from '../auth';
 
-const Contact = () => (
+const Contact = () => {
+return(
     <div className=" w-full overflow-hidden ">
         <div className={`${styles.paddingX} ${styles.flexCenter} `}>
             
@@ -29,14 +31,14 @@ const Contact = () => (
                     </div>
 
                     <div className={`flex-1 gap-5 w-full flex ${styles.flexCenter} `}>
-                        <EmailForm />
+                        <EmailFormNew />
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-)
+)}
 
 
 export default Contact
