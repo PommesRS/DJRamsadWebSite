@@ -1,81 +1,47 @@
-import { useRef, useState, useEffect } from 'react'
-import useAuth from '../hooks/useAuth';
+import { useRef, useState, useEffect, useContext } from 'react'
 import styles from "../style";
-import axios from '../api/axios';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-
-const LOGIN_URL = '/auth'
+import { Link, Navigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase.js';
+import { AuthContext } from "../auth";
 
 const Login = () => {
-    const { setAuth, persist, setPersist } = useAuth();
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const {currentUser}  = useContext(AuthContext);
 
     const userRef = useRef();
     const errRef = useRef();
-
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
-        userRef.current.focus();
+        if (!currentUser) {
+            userRef.current.focus();
+        }
     }, [])
 
     useEffect(() => {
         setErrMsg('');
     }, [user, pwd])
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        try {
-            const response = await axios.post(
-                LOGIN_URL, 
-                JSON.stringify({user, pwd}), 
-                {
-                    headers: {'Content-Type': 'application/JSON'},
-                    withCredentials: true
-                }
-            );
-            console.log(JSON.stringify(response?.data));
-            console.log(JSON.stringify(response));
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            const username = response?.data?.username;
+        signInWithEmailAndPassword(auth, user, pwd).then((userCredentials) => {
+            const user = userCredentials.user;
+            console.log(user);
+        }).catch((error) => {
 
-            setAuth({user, pwd, roles, accessToken, username});
-            localStorage.setItem("isLoggedIn", true);
-            localStorage.setItem("username", username);
-            setUser('');
-            setPwd('');
-            navigate(from, { replace: true });
-
-        } catch (err) {
-            if (!err.response) {
-                setErrMsg('No Server Response');
-            }else if(err.response?.status === 400){
-                setErrMsg('Missing Username or Password');
-            }else if(err.response?.status === 401){
-                setErrMsg('Kein Konto mit diesem Benutzernamen gefunden');
-            }else{
-                setErrMsg('Login failed');
-            }
-            errRef.current.focus();
-        }
+            setErrMsg(error.code, error.message);
+        })
 
     }
 
-    const togglePersist = () => {
-        setPersist(prev => !prev);
+    if (currentUser) {
+        console.log('penis')
+        return <Navigate to={'/'}></Navigate>
     }
-
-    useEffect(() => {
-        localStorage.setItem("persist", persist);
-    }, [persist])
 
     return (
         <section className='w-full overflow-hidden relative z-[1] text-white'>
@@ -115,8 +81,6 @@ const Login = () => {
                             <input 
                                 type="checkbox"
                                 id='persist'
-                                onChange={togglePersist}
-                                checked={persist}
                             />
                             <label htmlFor="persist"> Angemeldet bleiben</label>
                         </div>
@@ -124,7 +88,7 @@ const Login = () => {
                     <p>
                         Noch kein Konto?<br />
                         <span className='line'>
-                            <a href="/register" className=' underline '>Registrieren</a>
+                            <Link to={"/register"} className=' underline '>Registrieren</Link>
                         </span>
                     </p>
                 </div>

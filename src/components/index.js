@@ -9,14 +9,13 @@ import Footer from "./Footer";
 import Donate from "./Donate";
 import Landing from "./Landing";
 import Contact from "./Contact";
-import EmailForm from "./EmailForm"
+import EmailForm from "./EmailForm";
+import Login from './Login';
 import Register from "./Register";
-import Login from "./Login";
-import AdminMain from "./admin/AdminMain";
-import RequireAuth from "./admin/RequireAuth";
-import Users from "./admin/Users";
-import PersistLogin from "./admin/PersistLogin";
 import NavbarLogin from "./NavbarLogin";
+import AdminMain from "./admin/AdminMain";
+import Users from './admin/Users'
+import Inbox from './admin/Inbox'
 
 export{
     Navbar,
@@ -31,11 +30,10 @@ export{
     Landing,
     Contact,
     EmailForm,
-    Register,
     Login,
-    AdminMain,
-    RequireAuth,
-    Users,
-    PersistLogin,
+    Register,
     NavbarLogin,
+    AdminMain,
+    Users,
+    Inbox,
 }

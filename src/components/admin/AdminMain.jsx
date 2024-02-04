@@ -4,43 +4,44 @@ import { Outlet, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const AdminMain = () => {
-  const [activeId, setActiveId] = useState(null);
+  console.log('admin')
+  const [activeId, setActiveId] = useState(1);
 
-  const handleClick = (id) => {
-    setActiveId(id);
+  const handleClick = (e) => {
+    setActiveId(e.target.id);
   }
 
   return (
     <div className="bg-primary w-full overflow-hidden ">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`w-full`}>
-                <h1 className={`${styles.heading2} relative text-center`}>Admin Page</h1>
-                    <div className=" relative flex flex-row gap-10 h-full">
+                    <div className="relative flex flex-row gap-10 h-full overflow-hidden ">
 
-                      <div className='bg-[#252525] w-1/4 p-5 rounded-2xl'>
+                      <div className='w-1/4 border-[#4F228D] h-[80dvh] border-4 box-shadow-2 rounded-3xl bg-black-gradient-2 '>
                         <ul>
-                          <li className={`${styles.heading2} `}>Überblick</li>
+                          <li className={`${styles.heading2} p-5`}>Überblick</li>
                           <li className='w-full flex'>
-                            <Link href='#' className={`w-full py-3 text-white relative hover:bg-[#2b2b2b] bg-[#2b2b2b] before:w-2 before:h-1/2 before:bg-lime-500 before:content-[" "] before:absolute`}>
-                              <span className='ml-5'>Beutzerkonten</span>
+                            <Link id='1' to={'/admin/users'} onClick={handleClick} className={`w-full py-3 text-white relative hover:bg-[#4F228D] ${activeId == 1 ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute' : ''}`}>
+                              <span id='1' className='ml-5'>Beutzerkonten</span>
                               </Link>
                             </li>
                           <li className='w-full flex'>
-                            <Link href='#' className={`w-full py-3 text-white relative hover:bg-[#2b2b2b] ${activeId === 2 ? 'bg-[#2b2b2b] before:w-2 before:h-1/2 before:bg-lime-500 before:content-[" "] before:absolute' : ''}`}>
-                              <span className='ml-5'>Posteingang</span>
+                            <Link id='2' to={'/admin/inbox'} onClick={handleClick} className={`w-full py-3 text-white relative hover:bg-[#4F228D] ${activeId == 2 ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute' : ''}`}>
+                              <span id='2' className='ml-5'>Posteingang</span>
                               </Link>
                             </li>
                         </ul>
                       </div>
 
-                      <div className='bg-[#252525] w-full p-5 rounded-2xl'>
-
-                        <Outlet/> 
+                      <div className='bg-[#252525] w-full h-fit overflow-hidden box-shadow-2 rounded-3xl border-[#4F228D] border-4 bg-black-gradient-2'>
+                        <div className='overflow-y-scroll max-h-[80dvh] p-10 relative'>
+                          <Outlet/> 
+                        </div>
                       </div>
                     </div>
             </div>
         </div>
-    /</div>
+    </div>
   )
 }
 

@@ -233,6 +233,7 @@ input:-webkit-autofill:active{
   opacity: 1;
 }
 
+
 .mailform{
   position: relative;
   background-size: 350%;
@@ -337,4 +338,6 @@ input:-webkit-autofill:active{
  font-size: smaller;
  font-weight: 400;
 }
+
+
 

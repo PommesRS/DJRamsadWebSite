@@ -6,11 +6,11 @@ export const navLinks = [
     title: "Start",
   },
   {
-    id: "/#music",
+    id: "#/#music",
     title: "Lieder",
   },
   {
-    id: "/#partner",
+    id: "#/#partner",
     title: "Partner",
   },
 ];
@@ -174,14 +174,6 @@ export const footerLinks = [
       {
         name: "Kontakt",
         link: "#/contact",
-      },
-      {
-        name: "Anmelden",
-        link: "#/login",
-      },
-      {
-        name: "Registrieren",
-        link: "#/register",
       },
     ],
   },

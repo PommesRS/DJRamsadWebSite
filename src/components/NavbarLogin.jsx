@@ -1,28 +1,37 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import useLogout from '../hooks/useLogout';
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { accountLinks } from '../constants';
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+import { AuthContext } from "../auth";
 
 const NavbarLogin = () => {
     const [toggle, setToggle] = useState(false)
+    const {currentUser} = useContext(AuthContext);
 
-    const logout = useLogout();
-    const navigate = useNavigate();
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-
-    const signOut = async () => {
-        await logout();
-        navigate('/');
+    const handleSignOut = () => {
+        if (currentUser != null) {
+            signOut(auth).then(() => {
+            }).catch((error) => {
+                console.error(error);
+            })
+        }else {
+            console.log('no user logged in');
+        }
     }
+
+    useEffect(() => {
+        console.log(currentUser)
+    }, [currentUser])
 
     return (
         //<button className='text-white bg-violet-900 px-4 py-1 rounded-full' onClick={() => setToggle((prev) => !prev)}> {localStorage.getItem('username')} <FontAwesomeIcon icon={faCaretDown}/></button>
         <>
-            {isLoggedIn === 'true'
+            {currentUser != null
                 ? <button className=' relative' onClick={() => setToggle((prev) => !prev)}>
-                    <span className=' flex justify-center items-center gap-2 text-white px-4 py-2 pt-[0.50rem] leading-[0.8] rounded-full ring-1 ring-white '>arsch <FontAwesomeIcon icon={faCaretDown}/></span>
+                    <span className=' flex justify-center items-center gap-2 text-white px-4 py-2 pt-[0.50rem] leading-[0.8] rounded-full ring-1 ring-white '>{currentUser.displayName} <FontAwesomeIcon icon={faCaretDown}/></span>
                     <div className={`${toggle ? 'flex' : 'hidden'} p-6 purple__gradient absolute z-[5] top-15 right-0 my-2 rounded-xl border-2 border-[#b936f598]`}>
                         <ul className='list-none flex flex-col justify-end items-center gap-3 flex-1'>
                             {accountLinks.map((link, index) => (
@@ -30,7 +39,7 @@ const NavbarLogin = () => {
                                     <a href={link.id} >{link.title}</a>
                                 </li>
                             ))}
-                            <button className=' text-white font-poppins font-normal cursor-pointer' onClick={signOut}>Abmelden</button>
+                            <a className=' text-white font-poppins font-normal cursor-pointer' onClick={handleSignOut}>Abmelden</a>
                         </ul>
                     </div>
                 </button>

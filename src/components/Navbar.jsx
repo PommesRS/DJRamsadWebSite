@@ -1,11 +1,11 @@
 import styles from "../style"
 import {logo, close, menu} from '../assets';
 import {navLinks} from '../constants'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from "./Button";
-import { Link, useNavigate } from "react-router-dom";
-import useLogout from "../hooks/useLogout";
 import NavbarLogin from "./NavbarLogin";
+import { Link } from "react-router-dom";
+
 
 
 const Navbar = () => {
@@ -18,9 +18,9 @@ const Navbar = () => {
     <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
         {navLinks.map((nav, index) => (
           <li key={nav.id} className={`font-poppins font-normal cursor-pointer text-[16px] mr-10  ${index === navLinks.length - navLinks.length ? "text-secondary font-semibold" : "text-white"}`}>
-            <Link to={nav.id} className='group relative'>{nav.title}
+            <a href={nav.id} className='group relative'>{nav.title}
                 <span className='absolute w-0 h-1 -bottom-2 left-[50%] group-hover:w-[50%] group-hover:left-[25%] rounded-full bg-white transition-all duration-500'></span>
-            </Link>
+            </a>
           </li>
         ))}
         <li><NavbarLogin /></li>
