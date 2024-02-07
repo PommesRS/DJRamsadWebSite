@@ -14,6 +14,7 @@ const Inbox = () => {
 
     const deleteMail = async (mail) => {
         await deleteDoc(doc(db, 'inbox', mail.id));
+        await deleteDoc(doc(db, 'users', mail.userId, 'messages', mail.id));
         setReaload(true);
     }
 
@@ -42,10 +43,6 @@ const Inbox = () => {
         }
 
     }, [reload]);
-
-    if (!true) {
-        return <h1>Loading</h1>;
-    }
     
     return (
         <article className="text-white">

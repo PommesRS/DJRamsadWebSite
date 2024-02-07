@@ -6,8 +6,8 @@ import styles from '../style';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { collection, addDoc, doc } from "firebase/firestore";
-import { db, app } from '../firebase';
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { db } from '../firebase';
 
 export const EmailFormNew = () => {
     const [message, setMessage] = useState();
@@ -23,9 +23,14 @@ export const EmailFormNew = () => {
         const mail = await addDoc(collection(db, 'inbox'), {
             userEmail: currentUser.email,
             userName: currentUser.displayName,
+            userId: currentUser.uid,
             userMessage: message,
             createDate: timestamp
-        });
+        })
+        
+        //await db.collection('users').doc(currentUser.uid).collection('messages').doc(mail.id).set();
+        await setDoc(doc(db, 'users', currentUser.uid, 'messages', await mail.id), {})
+
         e.target.reset();
         setSuccess(true);
     };
@@ -38,9 +43,13 @@ export const EmailFormNew = () => {
             <div className={` bg-black-gradient-2 border-4 border-[#4F228D] w-[35rem] p-5 rounded-3xl relative`}>
                 
                 <h1 className={`${styles.heading2}`}><FontAwesomeIcon className='text-lime-500' icon={faCheck}/> Erfolg!</h1>
-                <button onClick={() => setSuccess(false)} className='relative font-poppins font-normal cursor-pointer underline text-white'>
+                <button onClick={() => setSuccess(false)} className='relative font-poppins font-normal cursor-pointer hover:text-secondary text-white'>
                     Verstanden
                 </button>
+                &nbsp;&nbsp;&nbsp;
+                <Link to={'/profile'} className='relative font-poppins font-normal cursor-pointer hover:text-secondary text-white'>
+                    Nachrichten ansehen <FontAwesomeIcon icon={faArrowRight}/>
+                </Link>
             </div> : currentUser ?
 
             <form className={` mailform flex flex-col gap-5 w-[35rem] p-5 rounded-3xl relative`} onSubmit={sendEmail}>

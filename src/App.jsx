@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox, EmailReader } from './components'
+import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox, EmailReader, ProfileMain } from './components'
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import { Routes, Route } from 'react-router-dom'
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -29,13 +29,17 @@ const App = () => {
 
         {/* Protected Routes */}
 
-        <Route element={<ProtectedRoute currentUserRole={currentUser?.userRole} allowedRole={187}/>}>
+        <Route element={<ProtectedRoute currentUserRole={currentUser?.userRole} allowedRoles={[187]}/>}>
           <Route path='admin' Component={AdminMain}>
             <Route path='users' Component={Users}/>
             <Route path='inbox' Component={Inbox}>
               <Route path='read' Component={EmailReader}/>
             </Route>
           </Route>
+        </Route>
+
+        <Route element={<ProtectedRoute currentUserRole={currentUser?.userRole} allowedRoles={[187, 420]}/>}>
+          <Route path='profile' Component={ProfileMain}/>
         </Route>
         
         {/* Fallback page -> Err 404 */}

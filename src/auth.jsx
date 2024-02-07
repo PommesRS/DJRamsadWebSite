@@ -37,7 +37,6 @@ export const AuthProvider = ({ children }) => {
           setCurrentUser(null);
           setCurrentUserRole(null);
           setIsFetching(false);
-          console.log(currentUser) 
         });
     
         return () => unsubscribe();

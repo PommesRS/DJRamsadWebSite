@@ -15,10 +15,21 @@ export const navLinks = [
   },
 ];
 
-export const accountLinks = [
+export const accountAdminLinks = [
   {
     id: "#/admin/users",
     title: "Admin Dashboard",
+  },
+  {
+    id: "#/profile",
+    title: "Profil",
+  },
+];
+
+export const accountUserLinks = [
+  {
+    id: "#/profile",
+    title: "Profil",
   },
 ];
 

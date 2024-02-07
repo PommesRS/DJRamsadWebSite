@@ -3,13 +3,12 @@ import styles from '../../style'
 import { Outlet, Link } from 'react-router-dom';
 import { useState } from 'react';
 
+
 const AdminMain = () => {
-  console.log('admin')
   var urlArr = [];
   urlArr = JSON.stringify(window.location.href).split('/');
   urlArr = urlArr[urlArr.length - 1].split('"')
   const [activeId, setActiveId] = useState(urlArr[0]);
-  console.warn(urlArr)
 
   const handleClick = (e) => {
     setActiveId(e.target.id);
@@ -21,7 +20,7 @@ const AdminMain = () => {
             <div className={`w-full`}>
                     <div className="relative flex flex-col lg:flex-row gap-10 h-full overflow-hidden ">
 
-                      <div className=' w-full lg:w-1/4 border-[#4F228D] lg:h-[80dvh] border-4 box-shadow-2 rounded-3xl bg-black-gradient-2 '>
+                      <div className=' w-full lg:w-1/4 border-[#4F228D] lg:h-[80dvh] border-4 box-shadow-2 rounded-3xl bg-black-gradient-2'>
                         <div className='flex flex-col'>
                           <h1 className={`${styles.heading2} px-5 pt-5`}>Überblick</h1>
                           <span className='w-full flex'>
