@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox, EmailReader, ProfileMain } from './components'
+import { Navbar, Landing, Contact, Login, Register, Footer, AdminMain, Users, Inbox, EmailReader, ProfileMain, Edit } from './components'
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import { Routes, Route } from 'react-router-dom'
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -35,6 +35,7 @@ const App = () => {
             <Route path='inbox' Component={Inbox}>
               <Route path='read' Component={EmailReader}/>
             </Route>
+            <Route path='edit' Component={Edit}/>
           </Route>
         </Route>
 

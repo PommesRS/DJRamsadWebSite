@@ -49,10 +49,10 @@ const Login = () => {
                     <h1 className=' text-[49px]'>Anmelden</h1>
                     <form className='flex flex-col' onSubmit={handleSubmit}>
                         <label htmlFor="username">
-                            Benutzername:
+                            Email Adresse:
                         </label>
                         <input 
-                            type="text" 
+                            type="email" 
                             id='username' 
                             ref={userRef} 
                             autoComplete='off' 

@@ -33,6 +33,11 @@ const AdminMain = () => {
                               <span id='read' className='ml-5 '>Posteingang</span>
                             </Link>
                           </span>
+                          <span className='w-full flex '>
+                            <Link id='edit' to={'/admin/edit'} onClick={handleClick} className={`flex items-center rounded-b-2xl lg:rounded-none w-full py-3 text-white relative hover:bg-[#4F228D] overflow-hidden duration-75 ease-linear ${activeId == 'edit' ? 'bg-[#4F228D] before:w-1 before:h-full before:top-0 before:bg-secondary before:content-[" "] before:absolute font-semibold' : ''}`}>
+                              <span id='edit' className='ml-5 '>Bearbeiten</span>
+                            </Link>
+                          </span>
                         </div>
                       </div>
 

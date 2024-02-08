@@ -19,6 +19,7 @@ import Inbox from './admin/Inbox'
 import EmailFormNew from "./EmailFormNew";
 import EmailReader from './admin/EmailReader'
 import ProfileMain from './client/ProfileMain'
+import Edit from "./admin/Edit";
 
 export{
     Navbar,
@@ -42,4 +43,5 @@ export{
     Inbox,
     EmailReader,
     ProfileMain,
+    Edit,
 }
